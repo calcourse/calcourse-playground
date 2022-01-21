@@ -373,7 +373,7 @@ function loadCourses(token) {
             filter();
         }
         // Prepares awesomeplete
-        new Awesomeplete(document.getElementById("search-input"), {list: ids.map((id) => ($(`.card[data-id="${id}"]`).data("name")))});
+        new Awesomplete(document.getElementById("search-input"), {list: [...new Set(ids.map((id) => ($(`.card[data-id="${id}"]`).data("name"))))]});
     }, error: (response) => {
         console.log(response);
     }});
